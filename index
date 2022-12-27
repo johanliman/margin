@@ -5,21 +5,17 @@
 
     <script>
         function count() {
-            start = document.getElementById("start").value;
-            end = document.getElementById("end").value;
-            const dateOne = new Date(start);
-            const dateTwo = new Date(end);
-            const time = Math.abs(dateTwo - dateOne);
-            const days = Math.ceil(time / (1000 * 60 * 60 * 24))
-            const hours = Math.ceil(time / (1000 * 60 * 60 * 24) * 24)
-            const minutes = Math.ceil(time / (1000 * 60 * 60 * 24) * 24 * 60)
-            const seconds = Math.ceil(time / (1000 * 60 * 60 * 24) * 24 * 60 * 60)
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-
+            beli = document.getElementById("buy").value;
+            jual = document.getElementById("sell").value;
+            lot = document.getElementById("shares").value;
+            document.getElementById("hargabeli").innerHTML = (beli * 100 * lot) + (beli * 100 * lot * 0.1 / 100);
+            document.getElementById("hargajual").innerHTML = (jual * 100 * lot) - (jual * 100 * lot * 0.2 / 100);
+            document.getElementById("profit3").innerHTML = (jual * 100 * lot) - (jual * 100 * lot * 0.2 / 100) - ((beli * 100 * lot) + (beli * 100 * lot * 0.1 / 100));
+            document.getElementById("hargabeli2").innerHTML = (beli * 100 * lot) + (beli * 100 * lot * 0.15 / 100);
+            document.getElementById("hargajual2").innerHTML = (jual * 100 * lot) - (jual * 100 * lot * 0.25 / 100);
+            document.getElementById("profit4").innerHTML = (jual * 100 * lot) - (jual * 100 * lot * 0.25 / 100) - ((beli * 100 * lot) + (beli * 100 * lot * 0.15 / 100));
         }
+
     </script>
     <style>
         .containerbox {
@@ -57,7 +53,8 @@
         #col-rev2 {
             flex-direction: row;
             display: flex;
-            width: 50%;
+            width: 40%;
+            left: 0;
         }
 
         #title {
@@ -110,16 +107,27 @@
             box-sizing: border-box;
         }
 
+        .btn {
+
+            left: 0;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
 
         input[type=submit] {
             background-color: #04AA6D;
-            width: 100px;
-            border: none;
+            width: 90%;
             color: white;
             padding: 16px 32px;
             text-decoration: none;
-            margin: 4px 2px;
+            margin-left: 20px;
             cursor: pointer;
+            align-items: center;
+            justify-content: center;
+
         }
 
         .command {
@@ -141,35 +149,68 @@
         <div class="column1">
 
             <div id="category">
-                <label style>Begin Date</label>
-                <input type="date" id="start" name="trip-start">
+                <label style>Buy</label>
+                <input type="text" id="buy" autofocus>
             </div>
 
             <div id="category">
-                <label style>End Date</label>
-                <input type="date" id="end" name="trip-end">
+                <label style>Sell</label>
+                <input type="text" id="sell">
             </div>
 
-            <input type="submit" value="submit" onclick="count()">
+            <div id="category">
+                <label style>Shares</label>
+                <input type="text" id="shares" value="100">
+            </div>
+
+            <div class="btn">
+                <input type="submit" value="Submit" onclick="count()">
+            </div>
 
 
 
             <div style="border:1px solid; margin-inline-end: 20px; margin-inline-start: 20px;"></div>
-            <div id="col-rev2">
-                <p id="title">Number of Days</p>
-                <p><span id="days"></span> Days</p>
+
+            <div style="border:0.5px solid lightgrey; padding:10px; margin:10px">
+                <div style="margin-left:20px">
+                    <H3>0.3%</H3>
+                </div>
+
+                <div id="col-rev2">
+                    <p id="title">Harga Beli</p>
+                    <p><span id="hargabeli"></span></p>
+                </div>
+
+                <div id="col-rev2">
+                    <p id="title">Harga Jual</p>
+                    <p><span id="hargajual"></span></p>
+                </div>
+
+                <div id="col-rev2">
+                    <p id="title">Profit</p>
+                    <p><span id="profit3"></span></p>
+                </div>
             </div>
-            <div id="col-rev2">
-                <p id="title">Number of Hours</p>
-                <p><span id="hours"></span> Hours</p>
-            </div>
-            <div id="col-rev2">
-                <p id="title">Number of Minutes</p>
-                <p><span id="minutes"></span> Minutes</p>
-            </div>
-            <div id="col-rev2">
-                <p id="title">Number of Seconds</p>
-                <p><span id="seconds"></span> Seconds</p>
+
+
+            <div style="border:0.5px solid lightgrey; padding:10px; margin:10px">
+                <div style="margin-left:20px">
+                    <H3>0.4%</H3>
+                </div>
+                <div id="col-rev2">
+                    <p id="title">Harga Beli</p>
+                    <p><span id="hargabeli2"></span></p>
+                </div>
+
+                <div id="col-rev2">
+                    <p id="title">Harga Jual</p>
+                    <p><span id="hargajual2"></span></p>
+                </div>
+
+                <div id="col-rev2">
+                    <p id="title">Profit</p>
+                    <p><span id="profit4"></span></p>
+                </div>
             </div>
 
 
