@@ -40,7 +40,7 @@
             display: flex;
             margin: 0 auto;
             height: 100%;
-            width: 90%;
+            width: 85%;
             margin-right: 10%;
             position: relative;
         }
@@ -123,22 +123,8 @@
         }
 
         .btn {
-
             width: 100%;
             margin-bottom: 20px;
-        }
-
-        input[type=submit] {
-            background-color: #04AA6D;
-            width: 100%;
-            color: white;
-            padding: 16px 32px;
-            text-decoration: none;
-
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-
         }
 
         .command {
@@ -161,67 +147,63 @@
 
             <div id="category">
                 <label style>Buy</label>
-                <input type="text" id="buy">
+                <input type="text" id="buy" onchange="count()">
             </div>
 
             <div id="category">
                 <label style>Sell</label>
-                <input type="text" id="sell">
+                <input type="text" id="sell" onchange="count()">
             </div>
 
             <div id="category">
                 <label style>Shares</label>
-                <input type="text" id="shares" value="100">
+                <input type="text" id="shares" value="100" onchange="count()">
             </div>
+            <div>
+                <div style="border:1px solid"></div>
 
-            <div class="btn">
-                <input type="submit" value="Submit" onclick="count()">
-            </div>
+                <div style="border:0.5px solid lightgrey; padding:10px; margin:10px; border-radius: 10px;">
+                    <div style="margin-left:20px">
+                        <H3>0.3%</H3>
+                    </div>
 
+                    <div id="col-rev2">
+                        <p id="title">Harga Beli</p>
+                        <p><span id="hargabeli"></span></p>
+                    </div>
 
+                    <div id="col-rev2">
+                        <p id="title">Harga Jual</p>
+                        <p><span id="hargajual"></span></p>
+                    </div>
 
-            <div style="border:1px solid"></div>
-
-            <div style="border:0.5px solid lightgrey; padding:10px; margin:10px; border-radius: 10px;">
-                <div style="margin-left:20px">
-                    <H3>0.3%</H3>
+                    <div id="col-rev2">
+                        <p id="title">Profit</p>
+                        <p><span id="profit3"></span></p>
+                    </div>
                 </div>
 
-                <div id="col-rev2">
-                    <p id="title">Harga Beli</p>
-                    <p><span id="hargabeli"></span></p>
+
+                <div style="border:0.5px solid lightgrey; padding:10px; margin:10px; border-radius: 10px;">
+                    <div style="margin-left:20px">
+                        <H3>0.4%</H3>
+                    </div>
+                    <div id="col-rev2">
+                        <p id="title">Harga Beli</p>
+                        <p><span id="hargabeli2"></span></p>
+                    </div>
+
+                    <div id="col-rev2">
+                        <p id="title">Harga Jual</p>
+                        <p><span id="hargajual2"></span></p>
+                    </div>
+
+                    <div id="col-rev2">
+                        <p id="title">Profit</p>
+                        <p><span id="profit4"></span></p>
+                    </div>
                 </div>
 
-                <div id="col-rev2">
-                    <p id="title">Harga Jual</p>
-                    <p><span id="hargajual"></span></p>
-                </div>
-
-                <div id="col-rev2">
-                    <p id="title">Profit</p>
-                    <p><span id="profit3"></span></p>
-                </div>
-            </div>
-
-
-            <div style="border:0.5px solid lightgrey; padding:10px; margin:10px; border-radius: 10px;">
-                <div style="margin-left:20px">
-                    <H3>0.4%</H3>
-                </div>
-                <div id="col-rev2">
-                    <p id="title">Harga Beli</p>
-                    <p><span id="hargabeli2"></span></p>
-                </div>
-
-                <div id="col-rev2">
-                    <p id="title">Harga Jual</p>
-                    <p><span id="hargajual2"></span></p>
-                </div>
-
-                <div id="col-rev2">
-                    <p id="title">Profit</p>
-                    <p><span id="profit4"></span></p>
-                </div>
             </div>
 
 
